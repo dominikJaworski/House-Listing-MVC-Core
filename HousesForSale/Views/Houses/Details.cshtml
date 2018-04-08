@@ -1,0 +1,115 @@
+﻿@model HousesForSale.Models.Houses
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<link rel="stylesheet" href="~/leaflet/leaflet.css"
+      crossorigin="" />
+<script src="~/leaflet/leaflet.js" xs
+        crossorigin=""></script>
+<div>
+    <div id="house-images">
+
+    </div>
+    
+    <div id="details" class="panel panel-default">
+        <div class="panel-heading address-details">
+            @Html.DisplayFor(model => model.StreetAddress),
+            @Html.DisplayFor(model => model.PostalCode),
+            @Html.DisplayFor(model => model.Region.RegionName) ON
+        </div>
+        <table class="table" id="extended-details">
+            <thead class="">
+                <tr>
+                    <th scope="col">MLS#</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Bathrooms</th>
+                    <th scope="col">Bedrooms</th>
+                    <th scope="col">Storeys</th>
+                    <th scope="col">Building Type</th>
+                    <th scope="col">Parking Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.Mlsnumber)</td>
+                    <td>@Html.DisplayFor(model => model.Price)</td>
+                    <td>@Html.DisplayFor(model => model.Bathrooms)</td>
+                    <td>@Html.DisplayFor(model => model.Bedrooms)</td>
+                    <td>@Html.DisplayFor(model => model.Storeys)</td>
+                    <td>@Html.DisplayFor(model => model.BuildingType.Type)</td>
+                    <td>@Html.DisplayFor(model => model.ParkingType.Type)</td>
+                </tr>
+            </tbody>
+        </table>
+        @*<div id="extended-details" class="panel-body container-fluid text-left">
+
+            <div class="row" id="detail-label">
+                <div class="col-xs-1">
+                    MLS#
+                </div>
+                <div class="col-xs-1">
+                    Price
+                </div>
+                <div class="col-xs-1">
+                    Bathrooms
+                </div>
+                <div class="col-xs-1">
+                    Bedrooms
+                </div>
+                <div class="col-xs-1">
+                    Storeys
+                </div>
+                <div class="col-xs-1">
+                    Building Type
+                </div>
+                <div class="col-xs-1">
+                    Parking Type
+                </div>
+            </div>
+
+            <div class="row" id="detail-value">
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.Mlsnumber)
+                </div>
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.Price)
+                </div>
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.Bathrooms)
+                </div>
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.Bedrooms)
+                </div>
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.Storeys)
+                </div>
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.BuildingType.Type)
+                </div>
+                <div class="col-xs-1">
+                    @Html.DisplayFor(model => model.ParkingType.Type)
+                </div>
+            </div>*@
+
+
+        </div>
+
+    </div>
+
+    <br />
+    <div id="mapid"></div>
+    <div>
+        @*<a asp-action="Edit" asp-route-id="@Model.HouseId">Edit</a> | *@
+        <a asp-action="Index">Back to List</a>
+    </div>
+    <script type="text/javascript" src="~/js/mapping.js"></script>
+
+    <script>
+        window.latitude = @Model.Latitude;
+        window.longitude = @Model.Longitude;
+
+    </script>

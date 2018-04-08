@@ -1,0 +1,86 @@
+﻿@model IEnumerable<HousesForSale.Models.Houses>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StreetAddress)
+            </th>    
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mlsnumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bedrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bathrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Storeys)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParkingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.HouseId">@Html.DisplayFor(modelItem => item.StreetAddress)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mlsnumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bedrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bathrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Storeys)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingType.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkingType.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region.RegionName)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.HouseId">Edit</a>*@
+                <a asp-action="Details" asp-route-id="@item.HouseId">Details</a>
+                @*<a asp-action="Delete" asp-route-id="@item.HouseId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
